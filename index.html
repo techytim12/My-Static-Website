@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -273,20 +274,20 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message Me</div>
-                    <form action="#">
+                    <form id="submit-form" action="" >
                         <div class="fields">
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input name="name" type="text" placeholder="Name" required>
                             </div>
                             <div class="field email">
-                                <input type="amail" placeholder="Email" required>
+                                <input name="email" type="email" placeholder="Email" required>
                             </div>
                         </div>
                             <div class="field">
-                                <input type="text" placeholder="Subject" required>
+                                <input name="subject" type="text" placeholder="Subject" required>
                             </div>
                             <div class="field textarea">
-                                <textarea cols="30" rows="10" placeholder="Message" required></textarea>
+                                <textarea name="message" cols="30" rows="10" placeholder="Message" required></textarea>
                             </div>
                             <div class="button">
                                 <button type="submit">Send Message!</button>
@@ -306,9 +307,28 @@
     </footer>
 
 
-
-
     <script src="script.js"></script>
+
+
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbw1HUkjLYYRw6IQvps5Tg2pnTRdpFaPeZCxkOIgR7Iv-ZrkpRQs4x2Lv_TBMKApPFitnA/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    //window.location.reload()
+                    window.location.href="#home"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 
 </body>
 
