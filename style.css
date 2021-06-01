@@ -392,16 +392,16 @@ section .title::after{
     width: 60%;
 }
 .skills-content .right .js::before{
-    width: 90%;
+    width: 85%;
 }
 .skills-content .right .node::before{
     width: 70%;
 }
 .skills-content .right .react::before{
-    width: 80%;
+    width: 75%;
 }
 .skills-content .right .mongo::before{
-    width: 85%;
+    width: 80%;
 }
 
 /* projects section styling */
