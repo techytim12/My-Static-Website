@@ -400,9 +400,9 @@ section .title::after{
 .skills-content .right .react::before{
     width: 75%;
 }
-.skills-content .right .mongo::before{
+/* .skills-content .right .mongo::before{
     width: 80%;
-}
+} */
 
 /* projects section styling */
 .projects .title::after{
